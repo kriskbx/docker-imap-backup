@@ -1,4 +1,4 @@
-# docker imap backup
+# docker imap backup 
 
 > Simple Docker image that runs imap-backup with crontab.
 
