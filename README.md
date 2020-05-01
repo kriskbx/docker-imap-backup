@@ -14,11 +14,11 @@ docker run \
     kriskbx/docker-imap-backup
 ```
 
-… or via volume:
+… or via volume (might only work on linux because file systems):
 
 ```bash
 docker run \
-    -v /host/path/to/config.json:/root/.imap-backup/config.json \
+    -v /host/path/to/config.json:/root/.imap-backup/config.json:ro \
     kriskbx/docker-imap-backup
 ```
 
