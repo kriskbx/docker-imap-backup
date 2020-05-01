@@ -4,7 +4,7 @@ set -e
 CONFIG_FILE=/root/.imap-backup/config.json
 BACKUP_SCRIPT=/usr/local/bin/imap-backup.sh
 
-CONFIG=${CONFIG:-"{\"accounts\":[]}"}
+CONFIG=${CONFIG:-'{"accounts":[]}'}
 SCHEDULE=${SCHEDULE:-"0 * * * *"}
 
 # create config file if it doesn't exist
