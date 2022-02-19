@@ -1,4 +1,8 @@
-FROM ruby:2.3-alpine
+FROM ruby:slim
+
+#install cron
+RUN apt-get update
+RUN apt-get install -y cron
 
 # install gem
 RUN gem install 'imap-backup'
@@ -18,4 +22,3 @@ RUN chmod a+x /usr/local/bin/imap-backup.sh
 VOLUME /root/.imap-backup
 
 ENTRYPOINT ["entrypoint.sh"]
-CMD ["crond","-f", "-L", "/dev/stdout"]
