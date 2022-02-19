@@ -17,8 +17,8 @@ fi
 
 # add backup script to crontab
 echo "Setting Crontab:"
-echo "$SCHEDULE ($BACKUP_SCRIPT) &> /root/.imap-backup/imap-backup.log"
-echo "$SCHEDULE ($BACKUP_SCRIPT) &> /root/.imap-backup/imap-backup.log" | crontab -
+echo "$SCHEDULE ($BACKUP_SCRIPT) > /root/.imap-backup/imap-backup.log 2>&1"
+echo "$SCHEDULE ($BACKUP_SCRIPT) > /root/.imap-backup/imap-backup.log 2>&1" | crontab -
 echo "Starting cron service..."
 service cron start
 
