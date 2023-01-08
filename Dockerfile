@@ -24,4 +24,4 @@ RUN chmod a+x /usr/local/bin/imap-backup.sh
 VOLUME /root/.imap-backup
 
 ENTRYPOINT ["entrypoint.sh"]
-CMD ["crond","-f", "-L", "/dev/stdout"]
+CMD ["cron","-f", "-L", "/dev/stdout"]
