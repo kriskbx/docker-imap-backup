@@ -1,4 +1,10 @@
-FROM ruby:3.2
+FROM ruby:3.2-buster
+
+# install cron & certificates
+RUN apt-get update \
+    && apt-get install -y \
+        cron \
+        ca-certificates
 
 # install gem
 RUN gem install 'imap-backup'
