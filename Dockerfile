@@ -4,13 +4,11 @@ FROM ruby:3.2-buster
 RUN apt-get update \
     && apt-get install -y \
         cron \
-        ca-certificates
+        ca-certificates \
+    && rm -rf /etc/cron.*/*
 
 # install gem
-RUN gem install 'imap-backup'
-
-# add cron log
-RUN touch /var/log/cron.log
+RUN whoami && gem install 'imap-backup' && which imap-backup
 
 # add entrypoint script
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
@@ -24,4 +22,4 @@ RUN chmod a+x /usr/local/bin/imap-backup.sh
 VOLUME /root/.imap-backup
 
 ENTRYPOINT ["entrypoint.sh"]
-CMD ["cron","-f", "-L", "/dev/stdout"]
+CMD ["cron", "-f"]

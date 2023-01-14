@@ -16,9 +16,9 @@ if [ ! -f $CONFIG_FILE ]; then
 fi
 
 # add backup script to crontab
-echo "$SCHEDULE $BACKUP_SCRIPT" | crontab -
+echo "$SCHEDULE root $BACKUP_SCRIPT > /proc/1/fd/1 2>/proc/1/fd/2" > /etc/crontab
 
-# run backup script once at startup
-.$BACKUP_SCRIPT
+# set environment
+env >> /etc/environment
 
 exec "$@"

@@ -32,6 +32,12 @@ docker run \
     kriskbx/docker-imap-backup
 ```
 
+If you want to schedule the job from your host/orchestrator, set the command to use the backup script:
+
+```bash
+docker run kriskbx/docker-imap-backup /usr/local/bin/imap-backup.sh
+```
+
 ## License
 
 MIT
